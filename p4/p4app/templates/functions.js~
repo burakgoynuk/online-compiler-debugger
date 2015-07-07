@@ -1,0 +1,12 @@
+
+theme = {
+    whateverFlashColor: '#ffffaa',
+    whateverElseFlashColor: '#bbffaa',
+    whateverElseThenFlashColor: '#ffffff',
+};
+
+$(document).ready(function () {
+
+$('#element').effect("highlight", {color:theme.whateverFlashColor}, 1000);
+});
+

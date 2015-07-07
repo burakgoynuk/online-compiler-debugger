@@ -1,0 +1,52 @@
+<HTML>
+	
+	{% load static %}
+		
+	<HEAD>
+		<META CONTENT="text/html; charset=UTF-8" HTTP-EQUIV="Content-Type">
+		<TITLE>Online Compiler and Debugger</TITLE>
+		
+		<link href="{% static 'jquery-ui-1.11.2/jquery-ui.min.css' %}" rel="stylesheet">  
+		<link href="{% static 'jquery-ui-1.11.2/jquery-ui.theme.min.css' %}" rel="stylesheet">  
+		<link href="{% static 'jquery-ui-1.11.2/jquery-ui.structure.min.css' %}" rel="stylesheet">  
+		
+		
+		<script src="{% static 'jquery-ui-1.11.2/jquery.min.js' %}"></script>
+		<script src="{% static 'jquery-ui-1.11.2/jquery-ui.min.js' %}"></script>
+		
+		<script src="{% static 'functions.js' %}"></script>
+		
+	</HEAD>
+	
+	<body background="{% static 'bg.jpg' %}" style = " background-position: center top; background-size: 100% auto; ">
+			   	
+		<h1>
+			<div style ="float : left;">
+				<img src = "{% static 'ceng_logo.png' %}" alt = "image" width="60" height="60" >
+			</div>
+				
+			Welcome to Online Compiler & Debugger 
+		</h1>
+		
+		<br><br>
+		
+		{% if load == 'True' %}
+		
+			<form action="compiler" method="post"> {% csrf_token %}
+			  You can use your ex file.  <input type="image" src = "{% static 'load.png' %}" witdh = "50" height = "25" value = "Load" />
+			</form>
+			
+		{% endif %}	
+		
+		<p>
+			You can write new code:
+		</p>
+			
+		<form action="compiler" method="post"> {% csrf_token %}
+		  <TEXTAREA NAME="code" COLS=100 ROWS=25></TEXTAREA>
+		  <input type="image" src = "{% static 'load.png' %}" witdh = "50" height = "25" title="Send"  value="Send" />
+		</form>
+
+	</body>
+	
+</html>	

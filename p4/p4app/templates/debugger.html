@@ -1,0 +1,75 @@
+<html>
+	
+	{% load static %}
+		
+	<head>
+		<META CONTENT="text/html; charset=UTF-8" HTTP-EQUIV="Content-Type">
+		<TITLE>Debugger Page</TITLE>
+	</head>
+	
+	<body> 
+	
+		<h1>
+			<div style ="float : left;">
+				<img src = "{% static 'ceng_logo.png' %}" alt = "image" width="60" height="60" >
+			</div>
+				
+			Welcome to Online Compiler & Debugger 
+		</h1>
+		
+		<br><br>
+		
+		<div style = "width:50%; float:left;" id = "buttons" >
+		
+			<form action="debugger" method="post"> {% csrf_token %}
+			  <input style="float:left;display: none;" type="text" value="run" name="command" />
+			  <input type="image" src = "{% static 'run.png' %}" title ="RUN" value="Run" />
+			</form>
+		
+		
+			<form action="debugger" method="post"> {% csrf_token %}
+			  <input style="float:left; display: none;" type="text" value="next" name="command" />
+			  <input type="image" src = "{% static 'next.png' %}" title ="NEXT" value="Next" />
+			</form>
+		
+		
+			<form action="debuggerBreak" method="post"> {% csrf_token %}
+			  <input style="float:left;" type="text" placeholder="Breakpoint at.." size = "13" name="command" />
+			  <input type="image" src = "{% static 'break.png' %}" title ="BREAK" value="Break" />
+			</form>
+		
+		
+			<form action="debuggerPrint" method="post"> {% csrf_token %}
+			  <input style="float:left;" type="text" placeholder="Print the variable.." size = "13" name="command" />
+			  <input type="image" src = "{% static 'print.png' %}" title ="PRINT" value="Print" />
+			</form>
+		
+		
+			<form action="debuggerClear" method="post"> {% csrf_token %}
+			  <input style="float:left;" type="text" placeholder="Clear breakpoint at.." size = "13" name="command" />
+			  <input type="image" src = "{% static 'clear.png' %}" title ="CLEAR" value="Clear" />
+			</form>
+			<br>
+		
+		</div>
+		
+		
+		<div style = "width:48%; height: 395px;float:right; border: 2px solid #a1a1a1;padding: 10px 0px; background: #fafafa;"> 
+			Last 10 outputs :	
+			
+			{% for command in lastTenDebug %}
+				<p> {{ command}} </p>
+			{% endfor %}
+						 
+		</div>
+
+		
+		<div style = "width:40%; height: 125px; float:left; border: 2px solid #a1a1a1;padding: 10px 0px; background: #fafafa;">
+			Below you can see the output of the last command:
+			<p>
+				{{debugResult}}
+			</p>
+		</div>
+	</body>
+	
+</html>	

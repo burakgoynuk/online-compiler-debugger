@@ -1,0 +1,24 @@
+<html>
+
+	<head>
+		<META CONTENT="text/html; charset=UTF-8" HTTP-EQUIV="Content-Type">
+		<TITLE>Compiler Page</TITLE>
+	</head>
+	
+	<body>
+
+		<form action="" method="post"> {% csrf_token %}
+		  Enter your gcc command: <input type="text" name="command" /></br>
+		  <input type="submit" value="Compile" />
+		</form>
+		
+		<p>
+			{{command}}
+			<br>
+			{{output}}
+		</p>
+		
+	
+	</body>
+	
+</html>	
