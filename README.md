@@ -3,6 +3,7 @@ Online compiler debugger application which serves functionalities of GDB written
 
 To start application:
   - You should be sure that Django is installed on your computer.
+  - You should be sure that GDB and GCC is under your /usr/bin
   - After clonning this directory, you should first run the server as:
       python server_p4.py
   - Then, on the ohter terminal, you can run Django application as:
